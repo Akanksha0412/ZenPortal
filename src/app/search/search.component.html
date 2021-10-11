@@ -1,0 +1,36 @@
+<form [formGroup]="searchForm">
+    <div class="d-flex mb-5">
+        <label class="mr-3" for="">Select a date</label>
+        <input type="date" formControlName="attendanceDate" [(ngModel)]="date" (change)="changeData()" value="{{date}}">
+    </div>
+</form>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Students Attendance Details</h6>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of presentStudentList let i=index">
+                        <td>{{date}}</td>
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.phoneNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
